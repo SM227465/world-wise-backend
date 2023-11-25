@@ -25,6 +25,8 @@ dotenv.config({ path: './config.env' });
 // calling express function and store into a variable
 const app = express();
 
+app.set('trust proxy', true);
+
 // setting templating view engine
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
