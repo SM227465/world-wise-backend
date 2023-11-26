@@ -86,7 +86,10 @@ exports.signup = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: true,
     message: 'Your account has been created successfully.',
-    token: token,
+    token: {
+      access: token,
+      refresh: null,
+    },
     user: newUser,
   });
 });
