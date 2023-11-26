@@ -16,7 +16,7 @@ const globalErrorHandler = require('./controllers/error.controller');
 
 // Routers
 const userRouter = require('./routes/user.route');
-// const factRouter = require('./routes/fact.route');
+const cityRouter = require('./routes/city.route');
 // const categoryRouter = require('./routes/category.route');
 
 // setting path for .env file
@@ -25,7 +25,7 @@ dotenv.config({ path: './config.env' });
 // calling express function and store into a variable
 const app = express();
 
-app.set('trust proxy', true);
+app.set('trust proxy', 'loopback');
 
 // setting templating view engine
 app.set('view engine', 'pug');
@@ -76,7 +76,7 @@ app.use(compression());
 // 2. Routes
 // i) Handling available routes
 app.use('/api/v1/users', userRouter);
-// app.use('/api/v1/facts', factRouter);
+app.use('/api/v1/cities', cityRouter);
 // app.use('/api/v1/categories', categoryRouter);
 
 // ii) Handling unavailable routes
